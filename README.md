@@ -6,13 +6,13 @@ Repository del Corso WAAT AA-2020-21
 
 1. da _Pycharm_ aprire il menù *VCS*->*Checkout From Version Control*->*GitHub*
 2. selezionare _Auth Type_->*password* e inserire le credenziali del vostro account su GitHub 
-3. inserire *https://github.com/marcoortu/WAAT-2020*  nel campo *Git Reposistory Url*
+3. inserire *https://github.com/marcoortu/WAAT-2021*  nel campo *Git Reposistory Url*
 
 oppure da terminale (per utenti esperti):
 
 ```git
 
-    git clone https://github.com/marcoortu/WAAT-2020
+    git clone https://github.com/marcoortu/WAAT-2021
     
 ```
 
