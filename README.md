@@ -1,52 +1,40 @@
-# WAAT-2021
-Repository del Corso WAAT AA-2020-21
-
-## Installazione
+# WAAT-2020
 
 
-1. da _Pycharm_ aprire il menù *VCS*->*Checkout From Version Control*->*GitHub*
-2. selezionare _Auth Type_->*password* e inserire le credenziali del vostro account su GitHub 
-3. inserire *https://github.com/marcoortu/WAAT-2020*  nel campo *Git Reposistory Url*
+## Esercitazione 1
 
-oppure da terminale (per utenti esperti):
 
-```git
+### Esercizio 1
 
-    git clone https://github.com/marcoortu/WAAT-2020
-    
+```python
+#Utilizzare le tuple per rappresentare i documenti
+doc1 = (
+    "doc1",
+    """una mattina, svegliandosi da sogni irrequieti Gregor Samsa
+    si trovo nel suo letto trasformato in un insetto mostruoso
+    """
+)
+
+doc2 = (
+    "doc2",
+    """Voi che trovate quando tornate a casa il cibo caldo e visi amici 
+    Considerate se questo è un uomo
+    """
+)
+
+doc3 = (
+    "doc3",
+    """Vidi un magnifico disegno rappresentava un serpente boa 
+    nell atto di inghiottire un animale
+    """
+)
 ```
 
-Scaricato il repository, assicurarsi di avere creato il *VirtualEnv* per il progetto.
-File -> Settings -> Project Interpreter.
-- Premere sull'ingranaggio a destra del campo per selezionare il _Python Interpreter_.
-- Selezionare _Add Local_.
-- *NB* Assicurarsi in inserire la cartella corretta nel campo _Location_ e premere invio.
+Scrivere il codice per eseguire le seguenti query utilizzando gli inverted index:
 
-
-oppure da terminale (per utenti esperti):
-- Aprire il terminale di _PyCharm_ ed eseguire il seguente comando.
-
-```bash
-    virtualenv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
-```
-Il file requirements.txt contiene la lista di tutte le librerie che serviranno durante le
-esercitazioni come ad esempio *nltk*, *numpy* etc.
-
-
-## Esercitazioni
-
-Le esercitazioni verranno inserite durante il corso come nuovi *branch* in questo repository.
-Utilizzando il *checkout* ci si può spostare nel *branch* di una particolare esercitazione.
-Per effettuare il *checkout* di un *branch* su _PyCharm_ click sul menù _Git_ in basso a destra e selezionare il branch tra quelli disponibili. I _Local Branches_ sono la lista dei branch locali di cui si è già fatto il checkout mentre i _Remote Branches_ sono tutti i _branch_ presenti nel repository remoto.
-
-- Per i _Local Branches_ selezionare l'opzione _Checkout_
-- Per i _Remote Brances_ selezionare l'opzione _Checkout as new branch_
-
-oppure da terminale (per utenti esperti):
-- Dal terminale di _Pycharm_ digitare il seguente comando per spostarsi nel *branch* della prima esercitazione.
-
-```git
-    git checkout 01-esercitazione
-```
+1. Documenti contenenti "un" e "atto"
+    - Risposta : "doc3" 
+2. Documenti contenenti "un atto"
+    - Risposta : nessuno 
+3. Documenti contenenti "un animale"
+    - Risposta : "doc3" 
