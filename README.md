@@ -1,52 +1,33 @@
-# WAAT-2021
-Repository del Corso WAAT AA-2020-21
+## Setup
 
-## Installazione
-
-
-1. da _Pycharm_ aprire il menù *VCS*->*Checkout From Version Control*->*GitHub*
-2. selezionare _Auth Type_->*password* e inserire le credenziali del vostro account su GitHub 
-3. inserire *https://github.com/marcoortu/WAAT-2021*  nel campo *Git Reposistory Url*
-
-oppure da terminale (per utenti esperti):
-
-```git
-
-    git clone https://github.com/marcoortu/WAAT-2021
-    
-```
-
-Scaricato il repository, assicurarsi di avere creato il *VirtualEnv* per il progetto.
-File -> Settings -> Project Interpreter.
-- Premere sull'ingranaggio a destra del campo per selezionare il _Python Interpreter_.
-- Selezionare _Add Local_.
-- *NB* Assicurarsi in inserire la cartella corretta nel campo _Location_ e premere invio.
-
-
-oppure da terminale (per utenti esperti):
-- Aprire il terminale di _PyCharm_ ed eseguire il seguente comando.
+Installare i requirements.
 
 ```bash
-    virtualenv venv
-    source venv/bin/activate
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
-Il file requirements.txt contiene la lista di tutte le librerie che serviranno durante le
-esercitazioni come ad esempio *nltk*, *numpy* etc.
 
+## File Audio supportati
+- WAV: must be in PCM/LPCM format
+- AIFF
+- AIFF-C
+- FLAC: must be native FLAC format; OGG-FLAC is not supported
 
-## Esercitazioni
+Alcuni file audio di test sono presenti in questo [repository](http://www.voiptroubleshooter.com/open_speech/index.html) 
+due dei quali riportati nelle directory data
 
-Le esercitazioni verranno inserite durante il corso come nuovi *branch* in questo repository.
-Utilizzando il *checkout* ci si può spostare nel *branch* di una particolare esercitazione.
-Per effettuare il *checkout* di un *branch* su _PyCharm_ click sul menù _Git_ in basso a destra e selezionare il branch tra quelli disponibili. I _Local Branches_ sono la lista dei branch locali di cui si è già fatto il checkout mentre i _Remote Branches_ sono tutti i _branch_ presenti nel repository remoto.
+## Referenze
 
-- Per i _Local Branches_ selezionare l'opzione _Checkout_
-- Per i _Remote Brances_ selezionare l'opzione _Checkout as new branch_
-
-oppure da terminale (per utenti esperti):
-- Dal terminale di _Pycharm_ digitare il seguente comando per spostarsi nel *branch* della prima esercitazione.
-
-```git
-    git checkout 01-esercitazione
-```
+ - Risorse online:
+    -   [apiai](https://pypi.org/project/apiai/) 
+    -   [google-cloud-speech](https://pypi.org/project/google-cloud-speech/) 
+    -   [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) 
+    -   [PocketSphinx](https://pypi.org/project/pocketsphinx/) 
+    -   [Wit](https://pypi.org/project/wit/)
+    -   [Guide To Speech Recognition With Python](https://realpython.com/python-speech-recognition/)
+ - Testi:
+    - Deep Learning for Nlp and Speech Recognition (ISBN: 978-3030145958)
+    - Natural Language Processing in Action: Understanding, Analyzing, and Generating Text With Python (ISBN: 978-1617294631)
+ - Articoli:
+    - CHAN, William, et al. Speech recognition with attention-based recurrent neural networks. U.S. Patent No 10,540,962, 2020.
+    - NASSIF, Ali Bou, et al. Speech recognition using deep neural networks: A systematic review. IEEE Access, 2019, 7: 19143-19165.
+    - GRAVES, Alex; MOHAMED, Abdel-rahman; HINTON, Geoffrey. Speech recognition with deep recurrent neural networks. In: 2013 IEEE international conference on acoustics, speech and signal processing. IEEE, 2013. p. 6645-6649.
