@@ -1,5 +1,5 @@
-# WAAT-2020
-Repository del Corso WAAT AA-2019-20
+# WAAT-2021
+Repository del Corso WAAT AA-2020-21
 
 ## Setup NLTK
 
