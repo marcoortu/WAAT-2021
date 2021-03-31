@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pyLDAvis
-import pyLDAvis.gensim_models
+from pyLDAvis.gensim_models import prepare
 import seaborn as sns
 import spacy
 from bokeh.io import output_notebook
@@ -116,7 +116,7 @@ def topics_document_words_freq_plot(df_dominant_topic):
 
 
 def visualize_topics(lda_model, corpus):
-    vis = pyLDAvis.gensim.prepare(lda_model, corpus, dictionary=lda_model.id2word, mds='mmds')
+    vis = prepare(lda_model, corpus, dictionary=lda_model.id2word, mds='mmds')
     pyLDAvis.save_html(vis, './report/topic_modeling_visualization.html')
 
 
