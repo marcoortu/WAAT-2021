@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pyLDAvis
+import pyLDAvis.gensim_models
 import seaborn as sns
 import spacy
 from bokeh.io import output_notebook
