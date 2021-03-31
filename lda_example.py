@@ -54,7 +54,7 @@ def process_words(texts,
     texts = [bigram_mod[doc] for doc in texts]
     texts = [trigram_mod[bigram_mod[doc]] for doc in texts]
     texts_out = []
-    nlp = spacy.load('en', disable=['parser', 'ner', 'textcat'])
+    nlp = spacy.load("en_core_web_sm")# spacy.load('en', disable=['parser', 'ner', 'textcat'])
     nlp.max_length = 10000000
     for sent in texts:
         doc = nlp(" ".join(sent))
