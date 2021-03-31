@@ -132,7 +132,7 @@ def plot_ROC(pipe_clf, x_train, y_train):
     Y_train = np.array(y_train)
 
     cv = list(StratifiedKFold(n_splits=3,
-                              random_state=1).split(X_train, Y_train))
+                              shuffle=True).split(X_train, Y_train))
 
     fig = plt.figure(figsize=(7, 5))
 
