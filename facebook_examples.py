@@ -13,7 +13,7 @@ from textblob import TextBlob
 
 from credentials import FACEBOOK_ACCESS_TOKEN
 
-graph = facebook.GraphAPI(access_token=FACEBOOK_ACCESS_TOKEN, version=3.0)
+graph = facebook.GraphAPI(access_token=FACEBOOK_ACCESS_TOKEN, version=3.1)
 
 
 def serialize(object):
