@@ -46,17 +46,17 @@ def dump_tweets(query, count):
 
 if __name__ == '__main__':
     filePath = dump_tweets(query="donald trump", count=10)  #
-    tweetsSentiment = pd.read_csv(filePath).to_dict('records')
-    print("Found %d tweets" % len(tweetsSentiment))
-    positiveTweets = [tweet['text'] for tweet
-                      in tweetsSentiment if tweet['sentiment'] == 'positive']
-    negativeTweets = [tweet['text'] for tweet
-                      in tweetsSentiment if tweet['sentiment'] == 'negative']
-    neutralTweets = [tweet['text'] for tweet
-                     in tweetsSentiment if tweet['sentiment'] == 'neutral']
-    print("Positive Tweets %d" % len(positiveTweets))
-    topic_modeling(tweets=positiveTweets)
-    print("Negative Tweets %d" % len(negativeTweets))
-    topic_modeling(tweets=negativeTweets)
-    print("Neutral Tweets %d" % len(neutralTweets))
-    topic_modeling(tweets=neutralTweets)
+    tweets_sentiment = pd.read_csv(filePath).to_dict('records')
+    print("Found %d tweets" % len(tweets_sentiment))
+    positive_tweets = [tweet['text'] for tweet
+                       in tweets_sentiment if tweet['sentiment'] == 'positive']
+    negative_tweets = [tweet['text'] for tweet
+                       in tweets_sentiment if tweet['sentiment'] == 'negative']
+    neutral_tweets = [tweet['text'] for tweet
+                      in tweets_sentiment if tweet['sentiment'] == 'neutral']
+    print("Positive Tweets %d" % len(positive_tweets))
+    topic_modeling(tweets=positive_tweets)
+    print("Negative Tweets %d" % len(negative_tweets))
+    topic_modeling(tweets=negative_tweets)
+    print("Neutral Tweets %d" % len(neutral_tweets))
+    topic_modeling(tweets=neutral_tweets)

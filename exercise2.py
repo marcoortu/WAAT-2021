@@ -20,7 +20,7 @@ def random_color():
                               random.randint(0, 255))
 
 
-def plotConnectionGraph(tfidf_matrix, clusters, positions):
+def plot_connection_graph(tfidf_matrix, clusters, positions):
     cluster_colors = {}
     cluster_names = {}
     for i in range(0, len(clusters)):
@@ -64,7 +64,7 @@ def plotConnectionGraph(tfidf_matrix, clusters, positions):
     ax.legend(numpoints=1)
 
     for i in range(len(df)):
-        ax.text(df.ix[i]['x'], df.ix[i]['y'], df.ix[i]['title'], size=8)
+        ax.text(df.loc[i, 'x'], df.loc[i, 'y'], df.loc[i, 'title'], size=8)
 
     plt.show()
 
@@ -105,7 +105,7 @@ if __name__ == '__main__':
     num_clusters = 15
     with open('./data/connections.csv', 'r') as csvFile:
         reader = csv.DictReader(csvFile)
-        positions = [row['Position'].decode('utf8') for row in reader]
+        positions = [row['Position'] for row in reader]
         tfidf_vectorizer = TfidfVectorizer(max_features=100,
                                            stop_words='english',
                                            use_idf=True,
@@ -118,4 +118,4 @@ if __name__ == '__main__':
         clusters = km.labels_.tolist()
         print(km.predict(tfidf_vectorizer.transform(['Post Doc'])))
         cluster_distribution(clusters)
-        plotConnectionGraph(tfidf_matrix, clusters, positions)
+        plot_connection_graph(tfidf_matrix, clusters, positions)
