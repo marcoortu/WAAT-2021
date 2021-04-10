@@ -83,3 +83,6 @@ venv.bak/
 data/
 corpus/
 report/
+credentials.py
+/spam_corpus/
+/corpus_imdb/
