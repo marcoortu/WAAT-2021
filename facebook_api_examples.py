@@ -1,6 +1,5 @@
 from __future__ import division
 
-import datetime
 import json
 
 import dateutil
@@ -131,45 +130,45 @@ def comparative_sentiment(
     entity2_posts = get_posts_data(entity2, count=count)
     print(entity2_posts[0])
     # estraggo solo il testo del post
-    entity1Messages = [post['message'] for post in entity1_posts]
-    entity2Messages = [post['message'] for post in entity2_posts]
+    entity1_messages = [post['message'] for post in entity1_posts]
+    entity2_messages = [post['message'] for post in entity2_posts]
     # calcolo il sentiment per i singoli messaggi
-    entity1Sentiment = [get_sentiment(message) for message in entity1Messages]
-    entity2Sentiment = [get_sentiment(message) for message in entity2Messages]
+    entity1_sentiment = [get_sentiment(message) for message in entity1_messages]
+    entity2_sentiment = [get_sentiment(message) for message in entity2_messages]
     # imposto la tabella
     pretty_table = PrettyTable(field_names=['Metric', entity1, entity2])
     # numero di posts
     pretty_table.add_row([
         '# Posts',
-        len(entity1Sentiment),
-        len(entity2Sentiment)
+        len(entity1_sentiment),
+        len(entity2_sentiment)
     ])
     # sentiment medio
     pretty_table.add_row([
         'Sentiment AVG',
-        '%0.2f' % np.mean(entity1Sentiment),
-        '%0.2f' % np.mean(entity2Sentiment)
+        '%0.2f' % np.mean(entity1_sentiment),
+        '%0.2f' % np.mean(entity2_sentiment)
     ])
     pretty_table.add_row([
         'Sentiment AVG No Neutral',
-        "%.2f" % np.mean(filter(lambda x: x != 0, entity1Sentiment)),
-        "%.2f" % np.mean(filter(lambda x: x != 0, entity2Sentiment))
+        "%.2f" % np.mean(filter(lambda x: x != 0, entity1_sentiment)),
+        "%.2f" % np.mean(filter(lambda x: x != 0, entity2_sentiment))
     ])
     # calcolo la percentuale di commenti neutrali/positivi/negativi filtrando i valori dalla lista dei sentiment
     pretty_table.add_row([
         'Neutral',
-        '%0.2f%%' % (len(filter(lambda x: x == 0.0, entity1Sentiment)) / count * 100),
-        '%0.2f%%' % (len(filter(lambda x: x == 0.0, entity2Sentiment)) / count * 100)
+        '%0.2f%%' % (len(filter(lambda x: x == 0.0, entity1_sentiment)) / count * 100),
+        '%0.2f%%' % (len(filter(lambda x: x == 0.0, entity2_sentiment)) / count * 100)
     ])
     pretty_table.add_row([
         'Positive',
-        '%0.2f%%' % (len(filter(lambda x: x > 0.0, entity1Sentiment)) / count * 100),
-        '%0.2f%%' % (len(filter(lambda x: x > 0.0, entity2Sentiment)) / count * 100)
+        '%0.2f%%' % (len(filter(lambda x: x > 0.0, entity1_sentiment)) / count * 100),
+        '%0.2f%%' % (len(filter(lambda x: x > 0.0, entity2_sentiment)) / count * 100)
     ])
     pretty_table.add_row([
         'Negative',
-        '%0.2f%%' % (len(filter(lambda x: x < 0.0, entity1Sentiment)) / count * 100),
-        '%0.2f%%' % (len(filter(lambda x: x < 0.0, entity2Sentiment)) / count * 100)
+        '%0.2f%%' % (len(filter(lambda x: x < 0.0, entity1_sentiment)) / count * 100),
+        '%0.2f%%' % (len(filter(lambda x: x < 0.0, entity2_sentiment)) / count * 100)
     ])
     pretty_table.align['Metric'] = 'l'
     print(pretty_table)
@@ -177,7 +176,7 @@ def comparative_sentiment(
     labels = [entity1, entity2]
     plt.figure()
     plt.boxplot(
-        [entity1Sentiment, entity2Sentiment],  # passo le due serie di dati
+        [entity1_sentiment, entity2_sentiment],  # passo le due serie di dati
         labels=labels
     )
     plt.show()
@@ -190,8 +189,8 @@ def comparative_sentiment(
         for post in entity2_posts
     ]
     plt.figure()
-    plt.plot(entity1_dates, entity1Sentiment)
-    plt.plot(entity2_dates, entity2Sentiment)
+    plt.plot(entity1_dates, entity1_sentiment)
+    plt.plot(entity2_dates, entity2_sentiment)
     plt.legend([entity1, entity2])
     plt.show()
 

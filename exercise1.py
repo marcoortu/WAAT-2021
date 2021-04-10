@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import CountVectorizer
 
-from twitterscraper_examples import get_tweets_sentiment
+from twitter_scraper_examples import get_tweets_sentiment
 
 
 def topic_modeling(tweets=None):

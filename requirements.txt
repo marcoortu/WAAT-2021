@@ -10,6 +10,5 @@ prettytable
 pandas
 tweepy
 git+https://github.com/mobolic/facebook-sdk.git#egg=facebook-sdk
-python-linkedin-v2
-pandas
 git+https://github.com/JustAnotherArchivist/snscrape.git
+facebook-scraper

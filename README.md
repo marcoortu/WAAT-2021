@@ -21,7 +21,13 @@ FACEBOOK_ACCESS_TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXX'
 
 Se non si ha accesso alle API di Twitter è possibile utilizzare una delle tante 
 librerie di _scraping_ disponibili ad esempio: [SNScrape](https://github.com/JustAnotherArchivist/snscrape). 
-Un esempio di utilizzo si trova nel file _twitterscraper_exaples.py_.
+Un esempio di utilizzo si trova nel file _twitter_scraper_examples.py_.
+
+## Facebook Scrapper
+
+Se non si ha accesso alle API di Facebook è possibile utilizzare una delle tante 
+librerie di _scraping_ disponibili ad esempio: [facebook-scraper](https://pypi.org/project/facebook-scraper/). 
+Un esempio di utilizzo si trova nel file _facebook_scraper_exaples.py_.
 
 ## Twitter
 
