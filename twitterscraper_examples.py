@@ -4,7 +4,7 @@ import sys
 
 from nltk import re
 from textblob import TextBlob
-from twitterscraper import query_tweets
+import snscrape.modules.twitter as sntwitter
 
 
 def clean_text(tweet):
@@ -20,7 +20,6 @@ def get_tweet_sentiment(tweet):
     TextBlog
     '''
     text = clean_text(tweet)
-    print(text)
     analysis = TextBlob(text)
     if analysis.sentiment.polarity > 0:
         return 'positive'
@@ -68,24 +67,21 @@ def get_tweets(query, count=10, start=None, end=None, lang='english'):
         end = datetime.date.today()
         start = (end - datetime.timedelta(days=30))
     tweets = []
+    query = f'{query} since:{start} until:{end}'
     try:
         # calls the API to obtain tweets
-        fetched_tweets = query_tweets(
-            query,
-            limit=count,
-            begindate=start,
-            enddate=end,
-            lang=lang
-        )
+        fetched_tweets = sntwitter.TwitterSearchScraper(query).get_items()
         # parsing the tweets
-        for tweet in fetched_tweets:
-            if tweet.text:
+        for i, tweet in enumerate(fetched_tweets):
+            if i > count:
+                return tweets
+            if tweet.content:
                 # add the tweet to our list and avoid retweets
-                if tweet.retweets > 0:
-                    if tweet.text not in tweets:
-                        tweets.append(tweet.text)
+                if tweet.retweetCount > 0:
+                    if tweet.content not in tweets:
+                        tweets.append(tweet.content)
                 else:
-                    tweets.append(tweet.text)
+                    tweets.append(tweet.content)
         return tweets
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -96,5 +92,6 @@ def get_tweets(query, count=10, start=None, end=None, lang='english'):
 
 if __name__ == '__main__':
     query = "donald trump"
-    count = 10
-    print(get_tweets_sentiment(query, count))
+    count = 100
+    for tweet in get_tweets_sentiment(query, count):
+        print(tweet['sentiment'], tweet['text'])

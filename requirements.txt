@@ -12,4 +12,4 @@ tweepy
 git+https://github.com/mobolic/facebook-sdk.git#egg=facebook-sdk
 python-linkedin-v2
 pandas
-twitterscraper
+git+https://github.com/JustAnotherArchivist/snscrape.git
