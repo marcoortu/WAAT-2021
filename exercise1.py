@@ -1,18 +1,18 @@
 import csv
+
 import pandas as pd
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import CountVectorizer
 
-from twitter_api_examples import get_tweet_sentiment, clean_text
-from twitterscraper_examples import get_tweets, get_tweets_sentiment
+from twitterscraper_examples import get_tweets_sentiment
 
 
 def topic_modeling(tweets=None):
     if not tweets:
         tweets = []
     tf_vectorizer = CountVectorizer(
-        max_df=0.95,
-        min_df=2,
+        max_df=2,
+        min_df=1,
         max_features=1000,
         stop_words='english'
     )
