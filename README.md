@@ -4,7 +4,7 @@
 ## Esercizio 1
 
 Utilizzare il dataset pubblico [Enron-spam](http://www2.aueb.gr/users/ion/data/enron-spam/) per
-creare un filtro anti-spam ([why spam?](https://www.youtube.com/watch?v=9OVKXIfrGJE&t=27s)). 
+creare un filtro anti-spam ([why spam?](https://www.youtube.com/watch?v=_bW4vEo1F4E)). 
 Utilizzare la versione _pre-processed_ del dataset e scaricare il primo link (Enron1).
 
 1. Il dataset è organizzato nel seguente modo:
