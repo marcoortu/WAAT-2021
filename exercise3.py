@@ -182,7 +182,7 @@ if __name__ == '__main__':
                            features=features)
     lda = LatentDirichletAllocation(learning_method='online')
     search_params = {'n_components': [10, 15, 20], 'learning_decay': [.5, .7, .9]}
-    grid_lda = GridSearchCV(lda, param_grid=search_params, cv=5, iid=False)
+    grid_lda = GridSearchCV(lda, param_grid=search_params, cv=5)
     # Best Model
     grid_lda.fit(data_vectorized)
     ldaBestModel = grid_lda.best_estimator_
