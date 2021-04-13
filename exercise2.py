@@ -119,7 +119,6 @@ if __name__ == '__main__':
         ('vect', TfidfVectorizer(
             strip_accents='unicode',
             decode_error='ignore',
-            stop_words='english'
         )),
         ('clf', SVC())
     ])
@@ -127,6 +126,7 @@ if __name__ == '__main__':
     n_train_docs = 25000
     n_test_docs = 25000
     x_train = df.loc[:n_train_docs, 'review'].values
+    print(len(x_train))
     y_train = df.loc[:n_train_docs, 'sentiment'].values
     x_test = df.loc[n_test_docs:, 'review'].values
     y_test = df.loc[n_test_docs:, 'sentiment'].values
@@ -147,8 +147,7 @@ if __name__ == '__main__':
         pipeline_clf,
         parameters,
         verbose=1,
-        scoring='f1_micro',
-        n_jobs=4
+        scoring='f1_macro',
     )
     print("Performing grid search...")
     print("pipeline:", [name for name, _ in pipeline_clf.steps])
