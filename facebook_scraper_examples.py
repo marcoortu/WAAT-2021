@@ -87,19 +87,7 @@ def comparative_sentiment(
         labels=labels
     )
     plt.show()
-    entity1_dates = [
-        post['time'].strftime('%Y-%m-%d')
-        for post in entity1_posts
-    ]
-    entity2_dates = [
-        post['time'].strftime('%Y-%m-%d')
-        for post in entity2_posts
-    ]
-    plt.figure()
-    plt.plot(entity1_dates, entity1_sentiment)
-    plt.plot(entity2_dates, entity2_sentiment)
-    plt.legend([entity1, entity2])
-    plt.show()
+
 
 
 def comparative_sentiment_over_time(
