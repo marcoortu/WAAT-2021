@@ -177,14 +177,14 @@ def comparative_sentiment_avg_per_day(
 
 if __name__ == '__main__':
     comparative_sentiment(
-        'donaldtrump',
-        'joebiden',
+        'cocacola',
+        'pepsi',
         count=100,
         pages=10
     )
     comparative_sentiment_avg_per_day(
-        'donaldtrump',
-        'joebiden',
+        'cocacola',
+        'pepsi',
         count=100,
         pages=10
     )
