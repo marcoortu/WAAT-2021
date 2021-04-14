@@ -1,14 +1,10 @@
 from collections import defaultdict
 
-import dateutil
 import matplotlib.pyplot as plt
 import numpy as np
-import requests
-
+from facebook_scraper import get_posts
 from prettytable import PrettyTable
 from textblob import TextBlob
-
-from facebook_scraper import get_posts
 
 
 def get_posts_data(query, count=100, pages=3):
@@ -159,17 +155,15 @@ def comparative_sentiment_avg_per_day(
     entity1_sentiment_per_day = group_posts_sentiment_by_day(entity1_posts)
     entity2_sentiment_per_day = group_posts_sentiment_by_day(entity2_posts)
     entity_dates = sorted(
-        list(set(list(entity1_sentiment_per_day.keys()) + list(entity2_sentiment_per_day.keys())))
-    )
-    print(entity2_sentiment_per_day)
+        list(set(entity1_sentiment_per_day.keys()).intersection(set(entity2_sentiment_per_day.keys()))))
     entity1_sentiment = [np.mean(entity1_sentiment_per_day[date])
-                         for date in entity1_sentiment_per_day.keys()]
+                         for date in entity_dates if date in entity1_sentiment_per_day]
     entity2_sentiment = [np.mean(entity2_sentiment_per_day[date])
-                         for date in entity2_sentiment_per_day.keys()]
+                         for date in entity_dates if date in entity2_sentiment_per_day]
 
     plt.figure()
-    plt.plot(entity1_sentiment_per_day.keys(), entity1_sentiment)
-    plt.plot(entity2_sentiment_per_day.keys(), entity2_sentiment)
+    plt.plot(entity_dates, entity1_sentiment)
+    plt.plot(entity_dates, entity2_sentiment)
     plt.legend([entity1, entity2])
     plt.xticks(entity_dates, entity_dates, rotation='45')
     plt.show()
@@ -177,14 +171,14 @@ def comparative_sentiment_avg_per_day(
 
 if __name__ == '__main__':
     comparative_sentiment(
-        'cocacola',
-        'pepsi',
+        'donaldtrump',
+        'joebiden',
         count=100,
-        pages=10
+        pages=20
     )
     comparative_sentiment_avg_per_day(
-        'cocacola',
-        'pepsi',
+        'donaldtrump',
+        'joebiden',
         count=100,
-        pages=10
+        pages=20
     )
